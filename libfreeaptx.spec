@@ -1,15 +1,14 @@
 Summary:	Open Source implementation of Audio Processing Technology codec (aptX)
 Summary(pl.UTF-8):	Otwarta implementacja kodeka Audio Processing Technology (aptX)
-Name:		libopenaptx
-Version:	0.2.1
+Name:		libfreeaptx
+Version:	0.1.1
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
-#Source0Download: https://github.com/pali/libopenaptx/releases
-Source0:	https://github.com/pali/libopenaptx/releases/download/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	83e12a34b86ee514fc5bb6f3ab060611
-Patch0:		%{name}-norpath.patch
-URL:		https://github.com/pali/libopenaptx
+#Source0Download: https://github.com/iamthehorker/libfreeaptx/releases
+Source0:	https://github.com/iamthehorker/libfreeaptx/archive/%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	58c2cf51f8b00d2414ae5f5239a64957
+URL:		https://github.com/iamthehorker/libfreeaptx
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -24,32 +23,19 @@ udostępnioną na licencji LGPL w wersji 2.1+. Kodek jest używany
 głównie w profilu Bluetooth A2DP.
 
 %package devel
-Summary:	Header files for openaptx library
-Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki openaptx
+Summary:	Header files for freeaptx library
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki freeaptx
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
-Header files for openaptx library.
+Header files for freeaptx library.
 
 %description devel -l pl.UTF-8
-Pliki nagłówkowe biblioteki openaptx.
-
-%package static
-Summary:	Static openaptx library
-Summary(pl.UTF-8):	Statyczna biblioteka openaptx
-Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}-%{release}
-
-%description static
-Static openaptx library.
-
-%description static -l pl.UTF-8
-Statyczna biblioteka openaptx.
+Pliki nagłówkowe biblioteki freeaptx.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__make} \
@@ -75,17 +61,13 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README
-%attr(755,root,root) %{_bindir}/openaptxdec
-%attr(755,root,root) %{_bindir}/openaptxenc
-%attr(755,root,root) %{_libdir}/libopenaptx.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libopenaptx.so.0
+%attr(755,root,root) %{_bindir}/freeaptxdec
+%attr(755,root,root) %{_bindir}/freeaptxenc
+%attr(755,root,root) %{_libdir}/libfreeaptx.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libfreeaptx.so.0
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libopenaptx.so
-%{_includedir}/openaptx.h
-%{_pkgconfigdir}/libopenaptx.pc
-
-%files static
-%defattr(644,root,root,755)
-%{_libdir}/libopenaptx.a
+%attr(755,root,root) %{_libdir}/libfreeaptx.so
+%{_includedir}/freeaptx.h
+%{_pkgconfigdir}/libfreeaptx.pc
