@@ -1,13 +1,13 @@
 Summary:	Open Source implementation of Audio Processing Technology codec (aptX)
 Summary(pl.UTF-8):	Otwarta implementacja kodeka Audio Processing Technology (aptX)
 Name:		libfreeaptx
-Version:	0.1.1
+Version:	0.2.2
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 #Source0Download: https://github.com/iamthehorker/libfreeaptx/releases
 Source0:	https://github.com/iamthehorker/libfreeaptx/archive/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	58c2cf51f8b00d2414ae5f5239a64957
+# Source0-md5:	7e0f2ec62204cd808f2dd6b44800e554
 URL:		https://github.com/iamthehorker/libfreeaptx
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
